@@ -16,7 +16,6 @@ public class BaseSetup {
     public JSONObject retrieveJSON() throws IOException, ParseException {
         FileReader reader = new FileReader(Constants.JSONPATH);
         JSONParser jsonParser = new JSONParser();
-        // Read JSON file
         Object obj = jsonParser.parse(reader);
         jsonData = (JSONObject) obj;
         return jsonData;

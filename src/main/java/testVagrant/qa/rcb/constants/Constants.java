@@ -6,5 +6,7 @@ public class Constants {
     public static final String wicketKeeperCountFailureMessage="Wicket Keeper count should be at least 1";
 
     public static final String internationalPlayerCountFailureMessage="International Player should be only 4";
+    public static final int expectedWicketKeeperCount=1;
+    public static final int expectedInternationalPlayersCount=4;
 
 }

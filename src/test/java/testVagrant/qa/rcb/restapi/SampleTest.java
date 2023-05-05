@@ -1,5 +1,6 @@
 package testVagrant.qa.rcb.restapi;
 
+import org.apache.log4j.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
@@ -9,10 +10,8 @@ import testVagrant.qa.rcb.constants.Constants;
 import java.io.IOException;
 
 public class SampleTest extends BaseSetup{
-
-
     @Test
-    public void verifyInternationalPlayersTest() throws IOException, ParseException {
+    public void verifyInternationalPlayersTest() {
         int countInternationalPlayers = 0;
         JSONArray arrayData = (JSONArray) jsonData.get("player");
         for (int i = 0; i < arrayData.size(); i++) {
@@ -21,11 +20,11 @@ public class SampleTest extends BaseSetup{
                 countInternationalPlayers = countInternationalPlayers + 1;
             }
         }
-        Assert.assertTrue(countInternationalPlayers==4, Constants.internationalPlayerCountFailureMessage);
+        Assert.assertTrue((countInternationalPlayers==Constants.expectedInternationalPlayersCount), Constants.internationalPlayerCountFailureMessage);
     }
 
     @Test
-    public void verifyWicketKeeperCount() throws IOException, ParseException {
+    public void verifyWicketKeeperCount() {
         int countWicketKeepers = 0;
         JSONArray arrayData = (JSONArray) jsonData.get("player");
         for (int i = 0; i < arrayData.size(); i++) {
@@ -34,7 +33,7 @@ public class SampleTest extends BaseSetup{
                 countWicketKeepers = countWicketKeepers + 1;
             }
         }
-        Assert.assertTrue(countWicketKeepers>=1, Constants.wicketKeeperCountFailureMessage);
+        Assert.assertTrue((countWicketKeepers>=Constants.expectedWicketKeeperCount), Constants.wicketKeeperCountFailureMessage);
     }
 
 }
